@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ✦ RAYVYN — Haute Joaillerie & Modern Luxe E-Commerce
 
-## Getting Started
+> *A Parisian atelier-inspired digital storefront built for high-end artisan jewelry, featuring dynamic MongoDB data layer integration, Next.js dynamic routing, and an architectural luxury aesthetic.*
 
-First, run the development server:
+## 🏛️ Project Vision
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Rayvyn** is a modern e-commerce platform designed with a high-fashion, minimalist Parisian aesthetic (Beige/Dark Green palette, elegant serif typography, and structured grid displays). The platform dynamically serves curated collections—ranging from sculpted titanium steel collars to minimalist signet rings—backed by a robust Node.js/Express API and a MongoDB Atlas infrastructure.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack & Architecture
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### **Frontend**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* **Framework**: [Next.js](https://nextjs.org/) (App Router, Turbopack)
 
-## Learn More
+* **Styling**: Tailwind CSS
 
-To learn more about Next.js, take a look at the following resources:
+* **Icons**: `react-icons` (Feather collection)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* **Data Fetching**: Suspense-driven server components with `"use cache"` optimization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **Backend**
 
-## Deploy on Vercel
+* **Runtime**: Node.js & Express.js
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* **Database**: MongoDB (Native MongoDB Node.js Driver)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* **CORS & Environment**: Configured via `dotenv` and `cors`
+
+## 🚀 Getting Started
+
+### 1. Prerequisites
+
+* **Node.js**: `v18.x` or later
+
+* **MongoDB Atlas** or a local MongoDB instance
+
+### 2. Backend Setup (`rayvyn-server`)
+
+1. **Navigate to the server directory**:
+
+   ```
+   cd rayvyn-server
+   
+   ```
+
+2. **Install dependencies**:
+
+   ```
+   npm install express mongodb dotenv cors
+   
+   ```
+
+3. **Configure Environment Variables (`.env`)**:
+
+   ```
+   PORT=7000
+   MONGODB_URI=your_mongodb_connection_string
+   CLIENT_URL=http://localhost:3000
+   
+   ```
+
+4. **Start the Express server**:
+
+   ```
+   node index.js
+   # or with nodemon
+   npm run dev
+   
+   ```
+
+### 3. Frontend Setup (`rayvyn-client`)
+
+1. **Navigate to the client directory**:
+
+   ```
+   cd rayvyn-client
+   
+   ```
+
+2. **Install dependencies**:
+
+   ```
+   npm install
+   
+   ```
+
+3. **Run the Next.js development server**:
+
+   ```
+   npm run dev
+   
+   ```
+
+4. Open <http://localhost:3000/necklace> to view the live dynamic collection!
+
+## 💎 Features Implemented
+
+* 🎨 **Atelier Visual System**: Designed with `#0E261D` deep emerald typography, `#FAFAF7` bone ivory surfaces, and serif headers.
+
+* 🔄 **Conditional Stock States**: Automatic rendering of `SEE DETAILS` (active) vs `OUT OF STOCK` (disabled) triggers based on `inStock` MongoDB boolean properties.
+
+* ⚡ **Optimized Data Fetching**: Utilizes Next.js `<Suspense>` boundaries paired with `"use cache"` directives to guarantee dynamic data rendering without blocking pre-renders.
+
+* 🖼️ **Image Fallbacks**: Custom high-end "No Image Provided" placeholders rendered cleanly whenever image URLs are absent.
+
+## 📜 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
